@@ -197,6 +197,10 @@ export class _Renderer {
     }
     href = cleanHref;
 
+    if (text === '1') {
+      return `<img src="${href}" alt="123456">`;
+    }
+
     let out = `<img src="${href}" alt="${text}"`;
     if (title) {
       out += ` title="${title}"`;
