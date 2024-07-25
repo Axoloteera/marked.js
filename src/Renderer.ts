@@ -197,16 +197,12 @@ export class _Renderer {
     }
     href = cleanHref;
 
-    if (text === '1') {
-      return `<img src="${href}" alt="123456">`;
+    if (text.toLowerCase() === 'type:video' || text.toLowerCase() === 'type:movie') {
+      const id = Math.random().toString(36).substring(2, 8);
+      return `<button id="btn-${id}" onclick="getElementById('video-${id}\').innerHTML='<source src=${href}\>';getElementById('video-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><video controls id="video-${id}" style="visibility: hidden;"></video>`;
     }
 
-    let out = `<img src="${href}" alt="${text}"`;
-    if (title) {
-      out += ` title="${title}"`;
-    }
-    out += '>';
-    return out;
+    return `<img src="${href}" alt="${text}">`;
   }
 
   text(token: Tokens.Text | Tokens.Escape | Tokens.Tag) : string {
