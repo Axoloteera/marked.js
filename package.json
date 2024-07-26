@@ -106,7 +106,8 @@
     "test:unit:only": "node --test --test-only --test-reporter=spec test/unit/*.test.js",
     "test:unit": "node --test --test-reporter=spec test/unit/*.test.js",
     "test:update": "node test/update-specs.js",
-    "custom-test": "node test/test.js"
+    "custom-test": "node test/test.js",
+    "make-dist": "mkdir dist && npm run build  && cp ./playground/index.html ./dist/index.html && cp ./marked.min.js ./dist/marked.min.js"
   },
   "engines": {
     "node": ">= 18"

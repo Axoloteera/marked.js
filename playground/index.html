@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Playground</title>
+  <script src="./marked.min.js"></script>
+  <script lang="javascript">
+    function render() {
+      var ta = document.getElementById('ta');
+      var content = document.getElementById('content');
+      content.innerHTML = marked.parse(ta.value);
+    }
+  </script>
+</head>
+<body>
+<h1>Markdown Playground</h1>
+<textarea id="ta" style="width: 60%; height: 400px;"></textarea>
+<br>
+<button id="btn" onclick="render()">立马查看!</button>
+<br>
+<div id="content" style="width: 60%; border: 5px solid #000000;">
+</div>
+
+</body>
+</html>
