@@ -199,12 +199,12 @@ export class _Renderer {
 
     if (text.toLowerCase() === 'type:video' || text.toLowerCase() === 'type:movie') {
       const id = Math.random().toString(36).substring(2, 8);
-      return `<button id="btn-${id}" onclick="getElementById('video-${id}\').innerHTML='<source src=${href}\>';getElementById('video-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><video controls id="video-${id}" style="visibility: hidden;"></video>`;
+      return `<button id="btn-${id}" onclick="getElementById('video-${id}\').innerHTML='<source src=${href}\>';getElementById('video-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><video controls id="video-${id}" style="visibility: hidden; width: 0px; height: 0px;"></video>`;
     }
 
     if (text.toLowerCase() === 'type:audio') {
       const id = Math.random().toString(36).substring(2, 8);
-      return `<button id="btn-${id}" onclick="getElementById('audio-${id}\').innerHTML='<source src=${href}\>';getElementById('audio-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><audio controls id="audio-${id}" style="visibility: hidden;"></audio>`;
+      return `<button id="btn-${id}" onclick="getElementById('audio-${id}\').innerHTML='<source src=${href}\>';getElementById('audio-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><audio controls id="audio-${id}" style="visibility: hidden; width: 0px; height: 0px;"></audio>`;
     }
 
     return `<img src="${href}" alt="${text}">`;
