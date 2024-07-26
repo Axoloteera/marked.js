@@ -6,11 +6,14 @@
   <script src="./marked.min.js"></script>
   <script lang="javascript">
     function render() {
-      var ta = document.getElementById('ta');
-      var content = document.getElementById('content');
-      content.innerHTML = marked.parse(ta.value);
+      document.getElementById('content').innerHTML = marked.parse(document.getElementById('ta').value);
     }
   </script>
+  <style>
+    code {
+      background-color: #dadada;
+    }
+  </style>
 </head>
 <body>
 <h1>Markdown Playground</h1>
@@ -21,5 +24,19 @@
 <div id="content" style="width: 60%; border: 5px solid #000000;">
 </div>
 
+<details>
+  <summary>点击展开新增的用法</summary>
+  <p>1.引用视频:<code>![type:video](URL)</code>或<code>![type:movie](URL)</code></p>
+  <p>2.引用音频:<code>![type:audio](URL)</code></p>
+</details>
+
+
+<br><br>
+<footer>
+  <p><a href="https://github/Axoloteera">Axoloteera</a>修改的<code>marked.js</code>,原组织<a href="http://github.com/markedjs">markedjs</a></p>
+  <p><a href="https://github.com/Axoloteera/marked.js">储存库地址(https://github.com/Axoloteera/marked.js)</a></p>
+  <p><a href="https://github.com/markedjs/marked">修改前的仓库地址(https://github.com/markedjs/marked)</a></p>
+  <p>托管于<a href="https://cloudflare.com">Cloudflare</a></p>
+</footer>
 </body>
 </html>
