@@ -199,12 +199,19 @@ export class _Renderer {
 
     if (text.toLowerCase() === 'type:video' || text.toLowerCase() === 'type:movie') {
       const id = Math.random().toString(36).substring(2, 8);
-      return `<button id="btn-${id}" onclick="getElementById('video-${id}\').innerHTML='<source src=${href}\>';getElementById('video-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><video controls id="video-${id}" style="visibility: hidden; width: 0px; height: 0px;"></video>`;
+      return `<button id="btn-${id}" onclick="document.getElementById('video-${id}\').innerHTML='<source src=${href}\>';document.getElementById('video-${id}\').style='';document.getElementById('btn-${id}\').remove();">点击加载视频</button><video controls id='video-${id}' style='visibility: hidden; width: 0px; height: 0px;'></video>`;
     }
 
     if (text.toLowerCase() === 'type:audio') {
       const id = Math.random().toString(36).substring(2, 8);
-      return `<button id="btn-${id}" onclick="getElementById('audio-${id}\').innerHTML='<source src=${href}\>';getElementById('audio-${id}\').style='visibility: visible;';getElementById('btn-${id}\').remove();">点击加载视频</button><audio controls id="audio-${id}" style="visibility: hidden; width: 0px; height: 0px;"></audio>`;
+      return `<button id="btn-${id}" onclick="document.getElementById('audio-${id}\').innerHTML='<source src=${href}\>';document.getElementById('audio-${id}\').style='';document.getElementById('btn-${id}\').remove();">点击加载视频</button><audio controls id='audio-${id}' style='visibility: hidden; width: 0px; height: 0px;'></audio>`;
+    }
+
+    if (text.toLowerCase() === 'type:bilibili' || text.toLowerCase() === 'type:哔哩哔哩' || text.toLowerCase() === 'type:bili') {
+      const id = Math.random().toString(36).substring(2, 8);
+      const bvid = (/([A-Z])\w+/g.exec(href) || [''])[0];
+      const iframe = `<iframe src='//player.bilibili.com/player.html?isOutside=true&bvid=${bvid}&p=1' allowfullscreen id='bili-${id}' style='width: 800px; height: 600px;'></iframe>`;
+      return `<button id='btn-${id}' onclick="document.getElementById('div-${id}').innerHTML=\`${iframe}\`;document.getElementById('btn-${id}\').remove();">点击加载哔哩哔哩视频</button><div id='div-${id}'></div>`;
     }
 
     return `<img src="${href}" alt="${text}">`;
